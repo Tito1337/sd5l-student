@@ -35,3 +35,7 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# Sublime
+sd5l-student.sublime-project
+sd5l-student.sublime-workspace
