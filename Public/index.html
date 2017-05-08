@@ -17,45 +17,18 @@
     <div class="row">
       <div id="app_1" class="col-lg-2">
         <div class="form-group" id="login" style="margin: 5px;" name="login">
-          <label id="label">matricule: </label>
+          <label id="matriculeLabel">matricule: </label>
           <input id="userid" type="text" class="form-control" name="userid"/>
-          <input id="submit" type="button" style="margin: 5px;" class="btn btn-primary btn-success" value="connexion"/>
+          <label id="passwordLabel"> Mot de passe: </label>
+          <input id="password" type="password" class="form-control" name="password"/>
+          <input id="submit" type="button" style="margin: 5px;" class="btn btn-primary btn-success" value="Connexion"/>
+          <input id="newStudent" type="button" style="margin: 5px;" class="btn btn-primary btn-error" value="Inscription">
         </div>
       </div>
       <div id="app_2" class="col-lg-10">
-        <section class="table-responsive" id="tableSecion">
-          <table id="UEReussie"class="table table-bordered table-condensed">
-            <caption>
-              <h4 style="text-align: center;">UE réussies</h4>
-            </caption>
-            <thead>
-              <tr>
-                <th>UE</th>
-                <th>Volume horaire [/heures]</th>
-              </tr>
-            </thead>
-            <tbody>
-          <tr><td>Math</td><td>45</td></tr>
-        </tbody>
-          </table>
-            <table id="UEEnCourTable"class="table table-bordered table-condensed">
-              <caption>
-                <h4 style="text-align: center;">UE en cours</h4>
-              </caption>
-              <thead>
-                <tr>
-                  <th>UE</th>
-                  <th>Volume horaire</th>
-                </tr>
-              </thead>
-            </table>
-      </section>
       </div>
     </div>
     <div class="row" id="inscriptionRow" >
-    <div id="inscriptionDiv" class="col-lg-10" style="margin: 5px;">
-      <input id="inscriptionButton" type="button" style="margin: 5px;" class="btn btn-primary btn-success" value="s'incrire à de nouvelles UE"/>
-    </div>
 </div>
 <div class="row" id="UEChoiceRow">
 <div id="UEChoiceDiv" class="col-lg-10" style="margin: 5px;">

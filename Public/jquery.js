@@ -17,6 +17,8 @@ $(document).ready(function(){
     $("#UEChoiceRow").hide();
   });
 });
+// app_2 ==tableSecion
+//
 /*function check(form)/*function to check userid & password
 {
 
