@@ -17,18 +17,52 @@
     <div class="row">
       <div id="app_1" class="col-lg-2">
         <div class="form-group" id="login" style="margin: 5px;" name="login">
-          <label id="matriculeLabel">matricule: </label>
+          <label id="label">Matricule: </label>
           <input id="userid" type="text" class="form-control" name="userid"/>
-          <label id="passwordLabel"> Mot de passe: </label>
+          <label>Mot de passe: </label>
           <input id="password" type="password" class="form-control" name="password"/>
-          <input id="submit" type="button" style="margin: 5px;" class="btn btn-primary btn-success" value="Connexion"/>
-          <input id="newStudent" type="button" style="margin: 5px;" class="btn btn-primary btn-error" value="Inscription">
+          <label>Nom: </label>
+          <input id="lname" type="text" class="form-control" name="lname"/>
+          <label>Prénom: </label>
+          <input id="fname" type="text" class="form-control" name="fname"/>
+          <input id="submit" type="button" style="margin: 5px;" class="btn btn-success" value="connexion"/>
+          <input id="inscription" type="button" style="margin: 5px;" class="btn btn-primary" value="Inscription"/>
         </div>
       </div>
       <div id="app_2" class="col-lg-10">
+        <section class="table-responsive" id="tableSecion">
+          <table id="UEReussie"class="table table-bordered table-condensed">
+            <caption>
+              <h4 style="text-align: center;">UE réussies</h4>
+            </caption>
+            <thead>
+              <tr>
+                <th>UE</th>
+                <th>Volume horaire [/heures]</th>
+              </tr>
+            </thead>
+            <tbody id="elementTableUE">
+          <tr><td>Math</td><td>45</td></tr>
+        </tbody>
+          </table>
+            <table id="UEEnCourTable"class="table table-bordered table-condensed">
+              <caption>
+                <h4 style="text-align: center;">UE en cours</h4>
+              </caption>
+              <thead>
+                <tr>
+                  <th>UE</th>
+                  <th>Volume horaire</th>
+                </tr>
+              </thead>
+            </table>
+      </section>
       </div>
     </div>
     <div class="row" id="inscriptionRow" >
+    <div id="inscriptionDiv" class="col-lg-10" style="margin: 5px;">
+      <input id="inscriptionButton" type="button" style="margin: 5px;" class="btn btn-primary btn-success" value="s'incrire à de nouvelles UE"/>
+    </div>
 </div>
 <div class="row" id="UEChoiceRow">
 <div id="UEChoiceDiv" class="col-lg-10" style="margin: 5px;">
@@ -56,6 +90,7 @@
   <input id="CancelUEChoiceButton" type="button" style="margin: 5px;" class="btn btn-primary btn-error" value="Annuler"/>
 </div>
 </div>
-<script src="jquery.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="jquery.js"></script>
 </body>
 </html>

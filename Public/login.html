@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-xs-6">
+		<h1>bonjour veuillez entrez vos informations de connexion</h1>
+	</div>
+	<div id="app_1" class="col-xs-6">
+		<p>{{message}}</p>
+		<form name="login">
+		<label>matricule: </label><br>
+		<input type="text" name="userid"/><br>
+		<label>mot de passe: </label><br>
+		<input type="password" name="pswrd"/><br>
+		<input type="button" v-on:click="connexion" style="margin: 13px;" class="btn btn-primary btn-success" value="connexion"/>
+		</form>
+	</div>
+</div>
