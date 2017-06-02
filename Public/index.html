@@ -21,10 +21,12 @@
           <input id="userid" type="text" class="form-control" name="userid"/>
           <label>Mot de passe: </label>
           <input id="password" type="password" class="form-control" name="password"/>
+          <div id="inscriptionEntry">
           <label>Nom: </label>
           <input id="lname" type="text" class="form-control" name="lname"/>
           <label>Prénom: </label>
           <input id="fname" type="text" class="form-control" name="fname"/>
+          </div>
           <input id="submit" type="button" style="margin: 5px;" class="btn btn-success" value="connexion"/>
           <input id="inscription" type="button" style="margin: 5px;" class="btn btn-primary" value="Inscription"/>
         </div>
@@ -55,6 +57,9 @@
                   <th>Volume horaire</th>
                 </tr>
               </thead>
+              <tbody id="elementNewUE">
+              <tr><td>Math</td><td>45</td></tr>
+              </tbody>
             </table>
       </section>
       </div>
@@ -69,7 +74,7 @@
   <section class="table-responsive" id="tableSecion">
     <table id="UEChoice" class="table table-bordered table-condensed">
       <caption>
-        <h4 style="text-align: center;">UE réussies</h4>
+        <h4 style="text-align: center;">Liste des UE</h4>
       </caption>
       <thead>
         <tr>
