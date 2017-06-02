@@ -3,9 +3,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <title>login</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Gestion des étudiants</title>
+  <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 <body>
   <div id="app">
@@ -17,45 +16,87 @@
     <div class="row">
       <div id="app_1" class="col-lg-2">
         <div class="form-group" id="login" style="margin: 5px;" name="login">
-          <label id="matriculeLabel">matricule: </label>
-          <input id="userid" type="text" class="form-control" name="userid"/>
-          <label id="passwordLabel"> Mot de passe: </label>
+          <label id="label">Matricule: </label>
+          <input id="studentID" type="text" class="form-control" name="studentID"/>
+          <label>Mot de passe: </label>
           <input id="password" type="password" class="form-control" name="password"/>
-          <input id="submit" type="button" style="margin: 5px;" class="btn btn-primary btn-success" value="Connexion"/>
-          <input id="newStudent" type="button" style="margin: 5px;" class="btn btn-primary btn-error" value="Inscription">
+          <div id="inscriptionEntry">
+          <label>Nom: </label>
+          <input id="lname" type="text" class="form-control" name="lname"/>
+          <label>Prénom: </label>
+          <input id="fname" type="text" class="form-control" name="fname"/>
+          </div>
+          <input id="submit" type="button" style="margin: 5px;" class="btn btn-success" value="connexion"/>
+          <input id="inscription" type="button" style="margin: 5px;" class="btn btn-primary" value="Inscription"/>
         </div>
       </div>
-      <div id="app_2" class="col-lg-10">
+        <div id="tableSectionDiv" style="margin: 5px;">
+      <div id="tableSectionDiv1" class="col-lg-10">
+          <div class="table-responsive" id="tableSection1">
+              <table id="UEReussie"class="table table-bordered table-condensed">
+                  <caption>
+                      <h4 style="text-align: center;">UE réussies</h4>
+                  </caption>
+                  <thead>
+                  <tr>
+                      <th>UE</th>
+                      <th>Volume horaire [/heures]</th>
+                  </tr>
+                  </thead>
+                  <tbody id="elementTableValidatedUE">
+
+                  </tbody>
+              </table>
+          </div>
+      </div>
+        <div id="tableSectionDiv2" class="col-lg-10">
+              <div class="table-responsive" id="tableSection2">
+              <table id="UEEnCourTable"class="table table-bordered table-condensed">
+                  <caption>
+                      <h4 style="text-align: center;">UE en cours</h4>
+                  </caption>
+                  <thead>
+                  <tr>
+                      <th>UE</th>
+                      <th>Volume horaire [/heures]</th>
+                  </tr>
+                  </thead>
+                  <tbody id="elementTableCurrentUE">
+
+                  </tbody>
+              </table>
+          </div>
       </div>
     </div>
-    <div class="row" id="inscriptionRow" >
+    <div class="row" id="inscriptionButtonRow" style="margin: 5px;">
+    <div id="inscriptionButtonDiv" class="col-lg-10" style="margin: 5px;">
+      <input id="inscriptionButton" type="button" style="margin: 5px;" class="btn btn-primary btn-success" value="s'incrire à de nouvelles UE"/>
+    </div>
 </div>
-<div class="row" id="UEChoiceRow">
-<div id="UEChoiceDiv" class="col-lg-10" style="margin: 5px;">
-  <section class="table-responsive" id="tableSecion">
-    <table id="UEChoice" class="table table-bordered table-condensed">
-      <caption>
-        <h4 style="text-align: center;">UE réussies</h4>
-      </caption>
-      <thead>
-        <tr>
-          <th>UE</th>
-          <th>Volume horaire [/heures]</th>
-        </tr>
-      </thead>
-      <tbody>
-    <tr>
-      <td>test</td>
-      <td>2</td>
-    </tr>
-</tbody>
-</table>
-</section>
+<div class="row" id="UEChoiceRow" style="margin: 5px;">
+    <div id="UEChoiceDiv" class="col-lg-12" style="margin: 5px;">
+        <div class="table-responsive" id="tableSecion" style="margin: 5px;">
+            <table id="UEChoice" class="table table-bordered table-condensed">
+                <caption>
+                    <h4 style="text-align: center;">Liste des UE</h4>
+                </caption>
+                <thead>
+                <tr>
+                    <th>UE</th>
+                    <th>Volume horaire [/heures]</th>
+                </tr>
+                </thead>
+                <tbody id="allUETalbe">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="CancelUEChoice"class="col-lg-12" style="margin: 5px;">
+        <input id="CancelUEChoiceButton" type="button" style="margin: 5px;" class="btn btn-primary btn-error" value="Annuler"/>
+    </div>
 </div>
-<div id="CancelUEChoice"class="col-lg-10" style="margin: 5px;">
-  <input id="CancelUEChoiceButton" type="button" style="margin: 5px;" class="btn btn-primary btn-error" value="Annuler"/>
-</div>
-</div>
-<script src="jquery.js" type="text/javascript"></script>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="jquery.js"></script>
 </body>
 </html>

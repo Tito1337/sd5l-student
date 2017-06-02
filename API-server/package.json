@@ -18,7 +18,11 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "mongoose": "^4.9.6"
+    "mongoose": "^4.9.6",
+    "kalamata": "^0.1.4",
+    "knex": "^0.12.9",
+    "mongoose": "^4.9.6",
+    "sqlite3": "^3.1.8"
   },
   "start": "nodemon server.js"
 }

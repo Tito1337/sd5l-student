@@ -7,7 +7,7 @@ exports.list_all = function(req, res) {
   Student.find(req.query, function(err, students) {
     if (err)
       res.send(err);
-    res.json(students);
+    res.json(student);
   });
 };
 
@@ -24,6 +24,7 @@ exports.read = function(req, res) {
   Student.findById(req.params.studentId, function(err, student) {
     if (err)
       res.send(err);
+      res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(student);
   });
 };
