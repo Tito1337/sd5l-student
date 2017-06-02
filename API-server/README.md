@@ -6,20 +6,9 @@ La student API est un serveur d'API REST, codé en node.js et basé sur une base
 # Table des matières
 - [Documentation de l'API REST](#)
     - [/students](#)
-            - [GET /students](#)
-            - [POST /students](#)
     - [/students/:studentId](#)
-            - [GET /students/:studentId](#)
-            - [PUT /students/:studentId](#)
-            - [DELETE /students/:studentId](#)
     - [/students/:studentId/current_ues](#)
-            - [GET /students/:studentId/current_ues](#)
-            - [POST /students/:studentId/current_ues](#)
-            - [DELETE /students/:studentId/current_ues](#)
     - [/students/:studentId/validated_ues](#)
-            - [GET /students/:studentId/validated_ues](#)
-            - [POST /students/:studentId/validated_ues](#)
-            - [DELETE /students/:studentId/validated_ues](#)
 - [Fonctionnement de l'API REST](#)
 
 # Documentation de l'API REST
