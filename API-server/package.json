@@ -16,12 +16,8 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
-    "bookshelf": "^0.10.3",
     "express": "^4.15.2",
-    "kalamata": "^0.1.4",
-    "knex": "^0.12.9",
     "mongoose": "^4.9.6"
   },
   "start": "nodemon server.js"

@@ -3,18 +3,16 @@ var express = require('express'),
     port = process.env.PORT || 3000,
     mongoose = require('mongoose'),
     Student = require('./api/models/studentModel'),
-    current_ue = require('./api/models/currentUeModel'),
     bodyParser = require('body-parser');
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/studentdb');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-/*var routes = require('./api/routes/studentRoutes');
-routes(app);*/
-
-var kalamata = require('kalamata');
-var api = kalamata(app);
-api.expose(Student);
+var routes = require('./api/routes/studentRoutes');
+routes(app);
 
 app.listen(port);
 

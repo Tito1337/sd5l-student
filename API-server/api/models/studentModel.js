@@ -1,21 +1,27 @@
 'use strict';
-var knex = require('knex')({
-  client: 'sqlite3',
-  connection: {
-    filename: "./Students.sqlite"
-  }
-});
-var bookshelf = require('bookshelf')(knex);
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-/*var ValidatedUes = require('./validatedUeModel');
-var CurrentUes = require('./currentUeModel');*/
 
-module.exports = bookshelf.Model.extend({
-    tableName: 'students',
-    /*validated_ues: function() {
-        return this.hasMany(ValidatedUes);
+var StudentSchema = new Schema({
+    matricule: {
+        type: String,
+        Required: 'matricule is mandatory'
     },
-    current_ues: function() {
-        return this.hasMany(CurrentUes);
-    }*/
+    first_name: {
+        type: String,
+        Required: 'first_name is mandatory'
+    },
+    last_name: {
+        type: String,
+        Required: 'last_name is mandatory'
+    },
+    validated_ues: {
+        type: [Number]
+    },
+    current_ues: {
+        type: [Number]
+    }
 });
+
+module.exports = mongoose.model('Students', StudentSchema);
