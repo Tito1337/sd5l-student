@@ -3,25 +3,6 @@ Student API
 
 La student API est un serveur d'API REST, codé en node.js et basé sur une base de données MongoDB. Cette API fournit toutes les méthodes pour créer, lire, modifier et supprimer (CRUD) des étudiants dans l'application distribuée. Elle fournit aussi des méthodes pour gérer le cursus d'un étudiant, sous la forme de deux listes d'UE liées à chaque étudiant : current_ues pour les UE en cours et validated_ues pour les UE validées.
 
-# Table des matières
-- [Documentation de l'API REST](#)
-    - [/students](#)
-            - [GET /students](#)
-            - [POST /students](#)
-    - [/students/:studentId](#)
-            - [GET /students/:studentId](#)
-            - [PUT /students/:studentId](#)
-            - [DELETE /students/:studentId](#)
-    - [/students/:studentId/current_ues](#)
-            - [GET /students/:studentId/current_ues](#)
-            - [POST /students/:studentId/current_ues](#)
-            - [DELETE /students/:studentId/current_ues](#)
-    - [/students/:studentId/validated_ues](#)
-            - [GET /students/:studentId/validated_ues](#)
-            - [POST /students/:studentId/validated_ues](#)
-            - [DELETE /students/:studentId/validated_ues](#)
-- [Fonctionnement de l'API REST](#)
-
 # Documentation de l'API REST
 L'API est accessibles selon 4 URLs différentes :
 
