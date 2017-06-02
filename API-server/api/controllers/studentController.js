@@ -7,6 +7,7 @@ exports.list_all = function(req, res) {
   Student.find({}, function(err, student) {
     if (err)
       res.send(err);
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost/sd5l-student/Public/index.html');
     res.json(student);
   });
 };
@@ -16,6 +17,7 @@ exports.create = function(req, res) {
   new_student.save(function(err, student) {
     if (err)
       res.send(err);
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost/sd5l-student/Public/index.html');
     res.json(student);
   });
 };
@@ -24,6 +26,7 @@ exports.read = function(req, res) {
   Student.findById(req.params.studentId, function(err, student) {
     if (err)
       res.send(err);
+      res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(student);
   });
 };
@@ -32,6 +35,7 @@ exports.update = function(req, res) {
   Student.findOneAndUpdate(req.params.studentId, req.body, {new: true}, function(err, student) {
     if (err)
       res.send(err);
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost/sd5l-student/Public/index.html');
     res.json(student);
   });
 };
@@ -42,6 +46,7 @@ exports.delete = function(req, res) {
   }, function(err, student) {
     if (err)
       res.send(err);
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost/sd5l-student/Public/index.html');
     res.json({ message: 'Student successfully deleted' });
   });
 };
