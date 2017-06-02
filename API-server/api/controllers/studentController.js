@@ -1,13 +1,14 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  Student = mongoose.model('Students');
+Student = mongoose.model('Students');
 
 exports.list_all = function(req, res) {
+    console.log(req.query);
   Student.find(req.query, function(err, students) {
     if (err)
       res.send(err);
-    res.json(student);
+    res.json(students);
   });
 };
 
@@ -16,7 +17,7 @@ exports.create = function(req, res) {
   new_student.save(function(err, student) {
     if (err)
       res.send(err);
-    res.json(student);
+    res.redirect('/students/'+student._id);
   });
 };
 
@@ -24,14 +25,13 @@ exports.read = function(req, res) {
   Student.findById(req.params.studentId, function(err, student) {
     if (err)
       res.send(err);
-      res.setHeader('Access-Control-Allow-Origin', '*');
     res.json(student);
   });
 };
 
 exports.update = function(req, res) {
-  //delete req.body.current_ues;
   delete req.body.validated_ues;
+  delete req.body.current_ues;
   Student.findOneAndUpdate(req.params.studentId, req.body, {new: true}, function(err, student) {
     if (err)
       res.send(err);
@@ -40,9 +40,7 @@ exports.update = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-  Student.remove({
-    _id: req.params.studentId
-  }, function(err, student) {
+  Student.remove({_id: req.params.studentId}, function(err, student) {
     if (err)
       res.send(err);
     res.json({ message: 'Student successfully deleted' });
@@ -81,7 +79,7 @@ exports.remove_current_ues = function(req, res) {
     var index = student.current_ues.indexOf(req.body.id);
 
     if(index == -1)
-        res.send('ERR : ID not found for this student');
+        res.send('ERROR : ID not found for this student');
 
     student.current_ues.splice(index, 1);
 
@@ -126,7 +124,7 @@ exports.remove_validated_ues = function(req, res) {
     var index = student.validated_ues.indexOf(req.body.id);
 
     if(index == -1)
-        res.send('ERR : ID not found for this student');
+        res.send('ERROR : ID not found for this student');
 
     student.validated_ues.splice(index, 1);
 
