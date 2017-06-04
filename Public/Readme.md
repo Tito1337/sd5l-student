@@ -6,7 +6,7 @@ L'interface utilisateur de ce projet est une interface codée en HTML et e JQuer
 # Fonctionement de l'interface
 ## La page principale
 
-![picture](public/figures/principale.png)
+![picture](figures/principale.png)
 
 Sur cette page, l'utilisateur à deux options qui s'offre à lui. La première est de se connecter à l'aide de son matricule et de son mot de passe (qui n'est pas gérer pour l'instant) en cliqant sur le bouton `Connexion`.
 
