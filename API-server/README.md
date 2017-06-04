@@ -3,29 +3,33 @@ Student API
 
 La student API est un serveur d'API REST, codé en node.js et basé sur une base de données MongoDB. Cette API fournit toutes les méthodes pour créer, lire, modifier et supprimer (CRUD) des étudiants dans l'application distribuée. Elle fournit aussi des méthodes pour gérer le cursus d'un étudiant, sous la forme de deux listes d'UE liées à chaque étudiant : `current_ues` pour les UE en cours et `validated_ues` pour les UE validées.
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Table des matières
 - [Student API](#student-api)
-- [Table des matières](#table-des-mati-res)
-- [Documentation de l'API REST](#documentation-de-l-api-rest)
-  * [/students](#-students)
-    + [`GET /students`](#-get--students-)
-    + [POST `/students`](#post---students-)
-  * [`/students/:studentId`](#--students--studentid-)
-    + [`GET /students/:studentId`](#-get--students--studentid-)
-    + [`PUT /students/:studentId`](#-put--students--studentid-)
-    + [`DELETE /students/:studentId`](#-delete--students--studentid-)
-  * [`/students/:studentId/current_ues`](#--students--studentid-current-ues-)
-    + [`GET /students/:studentId/current_ues`](#-get--students--studentid-current-ues-)
-    + [`POST /students/:studentId/current_ues`](#-post--students--studentid-current-ues-)
-    + [`DELETE /students/:studentId/current_ues`](#-delete--students--studentid-current-ues-)
-  * [`/students/:studentId/validated_ues`](#--students--studentid-validated-ues-)
-    + [`GET /students/:studentId/validated_ues`](#-get--students--studentid-validated-ues-)
-    + [`POST /students/:studentId/validated_ues`](#-post--students--studentid-validated-ues-)
-    + [`DELETE /students/:studentId/validated_ues`](#-delete--students--studentid-validated-ues-)
-- [Implémentation de l'API REST](#impl-mentation-de-l-api-rest)
-  * [Modèle](#mod-le)
-  * [Routes](#routes)
-  * [Contrôleur](#contr-leur)
+- [Documentation de l'API REST](#documentation-de-lapi-rest)
+  - [/students](#students)
+    - [`GET /students`](#get-students)
+    - [POST `/students`](#post-students)
+  - [`/students/:studentId`](#studentsstudentid)
+    - [`GET /students/:studentId`](#get-studentsstudentid)
+    - [`PUT /students/:studentId`](#put-studentsstudentid)
+    - [`DELETE /students/:studentId`](#delete-studentsstudentid)
+  - [`/students/:studentId/current_ues`](#studentsstudentidcurrent_ues)
+    - [`GET /students/:studentId/current_ues`](#get-studentsstudentidcurrent_ues)
+    - [`POST /students/:studentId/current_ues`](#post-studentsstudentidcurrent_ues)
+    - [`DELETE /students/:studentId/current_ues`](#delete-studentsstudentidcurrent_ues)
+  - [`/students/:studentId/validated_ues`](#studentsstudentidvalidated_ues)
+    - [`GET /students/:studentId/validated_ues`](#get-studentsstudentidvalidated_ues)
+    - [`POST /students/:studentId/validated_ues`](#post-studentsstudentidvalidated_ues)
+    - [`DELETE /students/:studentId/validated_ues`](#delete-studentsstudentidvalidated_ues)
+- [Implémentation de l'API REST](#impl%C3%A9mentation-de-lapi-rest)
+  - [Modèle](#mod%C3%A8le)
+  - [Routes](#routes)
+  - [Contrôleur](#contr%C3%B4leur)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 # Documentation de l'API REST
 L'API est accessible au travers de 4 URLs différentes :
