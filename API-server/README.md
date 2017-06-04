@@ -3,6 +3,27 @@ Student API
 
 La student API est un serveur d'API REST, codé en node.js et basé sur une base de données MongoDB. Cette API fournit toutes les méthodes pour créer, lire, modifier et supprimer (CRUD) des étudiants dans l'application distribuée. Elle fournit aussi des méthodes pour gérer le cursus d'un étudiant, sous la forme de deux listes d'UE liées à chaque étudiant : `current_ues` pour les UE en cours et `validated_ues` pour les UE validées.
 
+# Table des matières
+- [Documentation de l'API REST](#)
+    - [/students](#)
+        - [GET /students](#)
+        - [POST /students](#)
+    - [/students/:studentId](#)
+        - [GET /students/:studentId](#)
+        - [PUT /students/:studentId](#)
+        - [DELETE /students/:studentId](#)
+    - [/students/:studentId/current_ues](#)
+        - [GET /students/:studentId/current_ues](#)
+        - [POST /students/:studentId/current_ues](#)
+        - [DELETE /students/:studentId/current_ues](#)
+    - [/students/:studentId/validated_ues](#)
+        - [GET /students/:studentId/validated_ues](#)
+        - [POST /students/:studentId/validated_ues](#)
+        - [DELETE /students/:studentId/validated_ues](#)
+- [Implémentation de l'API REST](#)
+    - [Modèle](#)
+    - [Contrôleur](#)
+
 # Documentation de l'API REST
 L'API est accessible au travers de 4 URLs différentes :
 
@@ -198,7 +219,8 @@ var StudentSchema = new Schema({
     current_ues: {
         type: [Number]
     }
-});```
+});
+```
 
 Remarquons qu'il n'y a pas de modèle séparé pour `validated_ues` et `current_ues`, ce sont des tableaux directement liés à chaque étudiant. Cela est une facilité fournie par MongoDB qui est une base de données NoSQL stockant des documents Json. Lors de la première tentative d'implémentation de cette API, nous utilisions Sqlite3 qui nécessite un modèle séparé et des tables relationnelles, ce qui est beaucoup plus complexe.
 
@@ -237,11 +259,10 @@ exports.read = function(req, res) {
 ```
 On peut y voir que l'abstraction fournie par le modèle Mongoose simplifie grandement les requêtes vers la base de données. Le paramètre `req.arams.studentId` est automatiquement fourni par le routeur dont la ligne d'initialisation est `app.route('/students/:studentId')`.
 
-Tout le contrôleur est implémenté de manière à attraper les erreurs qui pourraient survenir si l'utilisateur de l'API demande une action impossible ou avec des erreurs. Dans ce cas la réponse est générée par la fonction `handleError` qui fixe le code de réponse HTTP à 400 et transmet l'erreur dans son intégralité à l'utilisateur pour qu'il puise comprendre ce qui s'est mal passé.
+Tout le contrôleur est implémenté de manière à attraper les erreurs qui pourraient survenir si l'utilisateur de l'API demande une action impossible ou avec des erreurs. Dans ce cas la réponse est générée par la fonction `handleError` qui fixe le code de réponse HTTP à `400` et transmet l'erreur dans son intégralité à l'utilisateur pour qu'il puise comprendre ce qui s'est mal passé.
 ```javascript
 function handleError(err, res) {
-    console.log("Client made a booboo: ");
-    console.log(err);
+    // ...
     res.status(400);
     res.json(err);
 }
