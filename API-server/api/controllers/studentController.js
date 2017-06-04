@@ -4,6 +4,8 @@ var mongoose = require('mongoose'),
 Student = mongoose.model('Students');
 
 function handleError(err, res) {
+    console.log("Client made a booboo: ");
+    console.log(err);
     res.status(400);
     res.json(err);
 }
