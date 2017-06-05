@@ -276,4 +276,8 @@ function handleError(err, res) {
 ```
 
 ## Problèmes et pistes d'amélioration
-TODO
+Le serveur d'API a en fait été implémenté deux fois, d'abord avec une base de données Sqlite3 et puis sur MongoDB avec Mongoose. Cela a fait suite à la rélisation qu'un modèle pour stocker les UEs et l'utilisation de tables relationnelles était tout à fait inutile pour correctement représenter le parcours d'un étudiant. Le stockage de documents Json par MongoDB est bien plus approprié, puisque les UEs peuvent simplement être un tableau d'identifiants.
+
+Au début le serveur était assez sensible à des requêtes mal formées et l'application node.js quittait à la moindre erreur non attrapée par un `catch` ou gérée par une fonction de `callback`. La dernière version du serveur d'API essaye de gérer tous les cas et d'attraper toutes les erreurs. Cependant à plusieurs endroits elle fait confiance à Mongoose pour se rendre compte de données mal formées. Nous pourrions vérifier les données reçues de manière plus exhaustive.
+
+Dans sa version actuelle, le serveur d'API n'offre également aucune sécurité ou authentification. Si un étudiant arrivait à faire des requêtes HTTP vers ce serveur, il pourrait assez facilement déplacer des UE de la liste "current" à la liste "validated".

@@ -1,4 +1,4 @@
-# Service Étudiants du système distribué pour le laboratoire SD5L
+# Laboratoire SD5L : Service d'un système distribué
 ## Auteurs
 * Christophe DE WOLF (14340)
 * Guillaume VERFAILLE (11210)
