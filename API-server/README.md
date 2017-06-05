@@ -5,11 +5,11 @@ La student API est un serveur d'API REST, codé en node.js et basé sur une base
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table des matières
-- [Student API](#student-api)
+
 - [Documentation de l'API REST](#documentation-de-lapi-rest)
   - [/students](#students)
     - [`GET /students`](#get-students)
-    - [POST `/students`](#post-students)
+    - [`POST /students`](#post-students)
   - [`/students/:studentId`](#studentsstudentid)
     - [`GET /students/:studentId`](#get-studentsstudentid)
     - [`PUT /students/:studentId`](#put-studentsstudentid)
@@ -26,6 +26,7 @@ La student API est un serveur d'API REST, codé en node.js et basé sur une base
   - [Modèle](#mod%C3%A8le)
   - [Routes](#routes)
   - [Contrôleur](#contr%C3%B4leur)
+- [Problèmes et pistes d'amélioration](#probl%C3%A8mes-et-pistes-dam%C3%A9lioration)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -87,7 +88,7 @@ Il est possible de filtrer les résultats en ajoutant des paramètres à la requ
  * Exemple 1 : `GET /students?matricule=42` ne retournera que les étudiants ayant le matricule 42
  * Exemple 2 : `GET /students?last_name=De%20Wolf` ne retournera que les étudiants dont le nom de famille est "De Wolf"
 
-#### POST `/students`
+#### `POST /students`
 
 Crée un nouvel étudiant. En cas de succès, l'utilisateur est redirigé vers `GET /students/:studentId` lui permettant de consulter le nouvel étudiant créé, ID compris.
 
@@ -204,7 +205,7 @@ Le serveur d'API est une application node.js utilisant une base de données Mong
 * [`api/controllers/studentController.js`](api/controllers/studentController.js) : contient le **contrôleur** càd. les différentes méthodes càd. la logique qui consulte et modifie la base de données selon la route
 
 ### Modèle
-Le modèle peut être vu dans le fichier [`api/models/studentModel.js`](api/models/studentModel.js) :
+Le modèle peut être vu dans le fichier [`api/models/studentModel.js`](api/models/studentModel.js). C'est un schéma utilisant la librairie [Mongoose](http://mongoosejs.com/) qui fait abstraction de la base de données MongoDB en fournissant des objets directement manipulables dans l'application node.js.
 ```javascript
 var StudentSchema = new Schema({
     matricule: {
@@ -265,7 +266,7 @@ exports.read = function(req, res) {
 ```
 On peut y voir que l'abstraction fournie par le modèle Mongoose simplifie grandement les requêtes vers la base de données. Le paramètre `req.arams.studentId` est automatiquement fourni par le routeur dont la ligne d'initialisation est `app.route('/students/:studentId')`.
 
-Tout le contrôleur est implémenté de manière à attraper les erreurs qui pourraient survenir si l'utilisateur de l'API demande une action impossible ou avec des erreurs. Dans ce cas la réponse est générée par la fonction `handleError` qui fixe le code de réponse HTTP à `400` et transmet l'erreur dans son intégralité à l'utilisateur pour qu'il puise comprendre ce qui s'est mal passé.
+Grâce aux vérifications de Mongoose, il est également inutile de vérifier le format des données soumises par l'utilisateur. S'il y a la moindre erreur, le contrôleur s'en rend compte et remonte l'erreur à l'utilisateur grâce à la fonction `handleError` qui fixe le code de réponse HTTP à `400` et transmet l'erreur dans son intégralité dans la réponse, pour que l'utilisateur puisse la comprendre et la corriger.
 ```javascript
 function handleError(err, res) {
     // ...
@@ -273,3 +274,6 @@ function handleError(err, res) {
     res.json(err);
 }
 ```
+
+## Problèmes et pistes d'amélioration
+TODO
