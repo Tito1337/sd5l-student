@@ -1,7 +1,19 @@
 # Service Étudiants du système distribué pour le laboratoire SD5L
 ## Auteurs
 * Christophe DE WOLF (14340)
-* Guillaume VERFAILLE
+* Guillaume VERFAILLE (11210)
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Table des matières
+- [Introduction](#introduction)
+- [API REST](#api-rest)
+- [Interface graphique](#interface-graphique)
+- [Organisation du travail](#organisation-du-travail)
+- [Conclusion](#conclusion)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 ## Introduction
 Durant ce laboratoire, nous avons été amenés à implémenter le service "Étudiants" d'un système distribué permettant de gérer le programme des étudiants de l'ECAM d'après les réformes du ministre Marcourt.
